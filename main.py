@@ -2,7 +2,8 @@
 
 import pandas as pd
 import numpy as np
-from sklearn import linear_model, model_selection, metrics
+from sklearn import model_selection, metrics, linear_model
+from sklearn.ensemble import RandomForestClassifier
 
 # Appropriate Training Data Conversion Cell
 
@@ -37,7 +38,7 @@ y = train["Survived"]
 
 # Model Initialization & Training
 
-model = linear_model.LogisticRegression(max_iter=1000)
+model = RandomForestClassifier(n_estimators=1000, max_depth=5, random_state=1)
 model.fit(X_train, y_train)
 
 # Accuracy Testing
